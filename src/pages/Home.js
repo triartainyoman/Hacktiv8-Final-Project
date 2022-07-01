@@ -55,6 +55,7 @@ function Home() {
   return (
     <div>
       <h2 className="mb-3">Products</h2>
+      <hr />
       {isLoading == true ? <Loading /> : <ShowProducts />}
     </div>
   );

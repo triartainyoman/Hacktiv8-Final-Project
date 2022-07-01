@@ -58,7 +58,7 @@ function Detail() {
           </nav>
           <h1 className="fw-bold">{product.title}</h1>
           <div className="badge bg-dark mb-4">{product.category}</div>
-          <h3 className="fw-bold mb-3">${product.price}</h3>
+          <h2 className="fw-bold mb-3">${product.price}</h2>
           <div className="w-20">
             <select
               class="form-select w-25 mb-3"
