@@ -37,7 +37,7 @@ function Login() {
     }
 
     const filter = users.filter((user) => user.email == email);
-    if (filter.email == email && filter.password == password) {
+    if (filter[0].email === email && filter[0].password === password) {
       localStorage.setItem("login", "true");
       navigate("/");
     }
