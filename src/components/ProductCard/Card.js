@@ -21,9 +21,9 @@ function Card(props) {
           >
             Detail
           </Link>
-          <button href="#" className="btn btn-dark">
+          <Link to="/cart" className="btn btn-dark">
             Add to Cart
-          </button>
+          </Link>
         </div>
       </div>
     </div>

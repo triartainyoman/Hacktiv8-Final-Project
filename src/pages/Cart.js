@@ -1,11 +1,16 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 
 function Cart() {
+  if (!localStorage.getItem("login")) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <div>
       <h2>My Cart</h2>
       <hr />
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col"></th>
