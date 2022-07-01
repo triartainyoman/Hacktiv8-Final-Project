@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Detail from "./pages/Detail";
 import Header from "./components/Header/Header";
-import AdminHome from "./pages/Admin/Home";
+import AdminHome from "./pages/Admin/AdminHome";
 
 function App() {
   return (

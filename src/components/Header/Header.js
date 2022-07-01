@@ -35,13 +35,41 @@ function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
-                Home
-              </Link>
-            </li>
-          </ul>
+          {isUserLogin ? (
+            <ul className="navbar-nav me-auto">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
+                  Home
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <></>
+          )}
+          {isAdminLogin ? (
+            <ul className="navbar-nav me-auto">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/admin/home"
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/admin/rekap"
+                >
+                  Rekap Penjualan
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <></>
+          )}
           <ul className="navbar-nav">
             {isUserLogin ? (
               <li className="nav-item">
