@@ -29,7 +29,7 @@ function Login() {
                 id="exampleInputPassword1"
               />
             </div>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-dark">
               Submit
             </button>
           </form>

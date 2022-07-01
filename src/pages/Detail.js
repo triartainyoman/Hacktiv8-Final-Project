@@ -56,7 +56,8 @@ function Detail() {
               </li>
             </ol>
           </nav>
-          <h1 className="fw-bold mb-4">{product.title}</h1>
+          <h1 className="fw-bold">{product.title}</h1>
+          <div className="badge bg-dark mb-4">{product.category}</div>
           <h3 className="fw-bold mb-3">${product.price}</h3>
           <div className="w-20">
             <select
@@ -75,6 +76,7 @@ function Detail() {
               type="text"
               className="form-control me-3"
               style={{ width: "50px" }}
+              value="1"
             />
             <button className="btn btn-dark d-flex align-items-center">
               <svg

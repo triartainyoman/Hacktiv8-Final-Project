@@ -9,7 +9,7 @@ function Home() {
   useEffect(() => {
     const getProducts = async () => {
       setIsLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products?limit=30")
+      const response = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
         .then((json) => setProducts(json));
       setIsLoading(false);
