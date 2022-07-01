@@ -19,16 +19,16 @@ function Home() {
 
   const Loading = () => {
     return (
-      <div className="row">
-        <div className="col-md-3">
-          <Skeleton height={350} baseColor="darkgrey" />
-        </div>
-        <div className="col-md-3">
-          <Skeleton height={350} baseColor="darkgrey" />
-        </div>
-        <div className="col-md-3">
-          <Skeleton height={350} baseColor="darkgrey" />
-        </div>
+      <div
+        style={{
+          width: "100vw",
+          heigth: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <p>Loading...</p>
       </div>
     );
   };
@@ -39,7 +39,8 @@ function Home() {
         {products.map((product, index) => {
           return (
             <Card
-              key={index}
+              key={product.id}
+              id={product.id}
               imageUrl={product.image}
               title={product.title}
               category={product.category}
