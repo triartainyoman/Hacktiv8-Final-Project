@@ -24,6 +24,8 @@ function Home() {
     getProducts();
   }, []);
 
+  // console.log(state.selectedProducts);
+
   const Loading = () => {
     return (
       <div

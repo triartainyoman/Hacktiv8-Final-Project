@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 function Cart() {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  // const [grandTotal, setGrandTotal] = useState(0);
+  let grandTotal = 0;
+
   if (!localStorage.getItem("login")) {
     return <Navigate to="/login" />;
   }
@@ -21,21 +27,32 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <img
-                style={{ height: 50 }}
-                src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-                alt="Cart Photo Product"
-              />
-            </td>
-            <td>Product 1</td>
-            <td>$10</td>
-            <td>
-              <input type="number" min={0} />
-            </td>
-            <td>$10</td>
-          </tr>
+          {state.selectedProducts.map((product, index) => {
+            let subTotal = parseFloat(product.price) * parseInt(product.qty);
+            grandTotal += subTotal;
+            return (
+              <tr key={index}>
+                <td>
+                  <img
+                    style={{ height: 50 }}
+                    src={product.image}
+                    alt={product.title}
+                  />
+                </td>
+                <td>{product.title}</td>
+                <td>${product.price}</td>
+                <td>
+                  <input
+                    type="number"
+                    min={0}
+                    value={product.qty}
+                    onChange={() => console.log("changed")}
+                  />
+                </td>
+                <td>${subTotal}</td>
+              </tr>
+            );
+          })}
         </tbody>
         <tfoot>
           <tr>
@@ -43,7 +60,7 @@ function Cart() {
             <th>Total</th>
             <td></td>
             <td></td>
-            <th>$10</th>
+            <th>${grandTotal}</th>
           </tr>
         </tfoot>
       </table>

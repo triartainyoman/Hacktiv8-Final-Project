@@ -22,10 +22,18 @@ function Detail() {
     getProduct();
   }, []);
 
-  const addProduct = () => {
+  const increaseCart = () => {
     dispatch({
       type: "INCREMENT_CART",
       payload: qty,
+    });
+  };
+
+  const addProduct = () => {
+    dispatch({
+      type: "SELECT_PRODUCT",
+      payload: product,
+      qty: qty,
     });
   };
 
