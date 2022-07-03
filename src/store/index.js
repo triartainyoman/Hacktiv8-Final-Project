@@ -2,6 +2,7 @@ import { createStore } from "redux";
 
 const initialState = {
   allProducts: [],
+  counter: 0,
 };
 
 const actionReducer = (state = initialState, action) => {
@@ -10,6 +11,16 @@ const actionReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: action.payload,
+      };
+    case "INCREMENT_CART":
+      let plus = parseInt(action.payload);
+      return {
+        counter: state.counter + plus,
+      };
+    case "DECREMENT_CART":
+      let minus = parseInt(action.payload);
+      return {
+        counter: state.counter - minus,
       };
     default:
       return state;
