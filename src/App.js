@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Detail from "./pages/Detail";
 import Header from "./components/Header/Header";
 import AdminHome from "./pages/Admin/AdminHome";
+import AdminRekap from "./pages/Admin/AdminRekap";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/product/:id" element={<Detail />} />
           <Route path="/admin/home" element={<AdminHome />} />
+          <Route path="/admin/rekap" element={<AdminRekap />} />
         </Routes>
       </div>
       {/* <Footer /> */}

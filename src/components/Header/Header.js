@@ -35,6 +35,17 @@ function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
+          {!isUserLogin ? (
+            <ul className="navbar-nav me-auto">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
+                  Home
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <></>
+          )}
           {isUserLogin ? (
             <ul className="navbar-nav me-auto">
               <li className="nav-item">

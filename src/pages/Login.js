@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -19,6 +19,14 @@ function Login() {
 
     getUsers();
   }, []);
+
+  if (localStorage.getItem("login")) {
+    return <Navigate to="/" />;
+  }
+
+  if (localStorage.getItem("loginAdmin")) {
+    return <Navigate to="/admin/home" />;
+  }
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);

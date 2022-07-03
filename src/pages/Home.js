@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
+import { useSelector, useDispatch } from "react-redux";
 import Card from "../components/ProductCard/Card";
 
 function Home() {
-  const [products, setProducts] = useState([]);
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -11,7 +13,12 @@ function Home() {
       setIsLoading(true);
       const response = await fetch("https://fakestoreapi.com/products")
         .then((res) => res.json())
-        .then((json) => setProducts(json));
+        .then((json) =>
+          dispatch({
+            type: "SET_PRODUCTS",
+            payload: json,
+          })
+        );
       setIsLoading(false);
     };
     getProducts();
@@ -36,10 +43,10 @@ function Home() {
   const ShowProducts = () => {
     return (
       <div className="row">
-        {products.map((product, index) => {
+        {state.allProducts.map((product, index) => {
           return (
             <Card
-              key={product.id}
+              key={index}
               id={product.id}
               imageUrl={product.image}
               title={product.title}
